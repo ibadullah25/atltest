@@ -1,0 +1,61 @@
+Task 1: Document how you would explain to another developer the approach you would take to build a product search to match the criteria below:
+
+A: I'll structure this as a straightforward web application with three core components:
+
+- Frontend Interface (HTML): I'll create a clean, responsive interface using Bootstrap/tailwind for rapid development and built-in responsiveness. The interface will consist of:
+
+- A simple search form.
+- A designated area for displaying search results
+- A loading indicator to provide user feedback during API calls
+- Pagination controls with Next/Previous buttons
+
+Frontend Logic (JavaScript):
+The JavaScript will handle all user interactions and data display. Key functionalities will include:
+
+- Event listeners for form submission and pagination controls
+- Search result management (clearing previous results, showing loading states)
+- API communication through our backend proxy
+- Dynamic rendering of search results in a grid layout
+- Pagination logic managing page numbers and API offsets
+
+Backend (PHP):
+To handle API communication securely, I'll create a PHP proxy that will:
+
+- Accept search parameters from the frontend
+- Sanitize input data
+- Make requests to the ATD Travel API
+- Return formatted JSON responses to the frontend
+
+The pagination system will:
+
+- Display 9 products per page
+- Track current page number
+- Calculate correct API offsets
+- Show/hide pagination controls based on available results
+
+Task 2: Describe how your approach would differ (if at all) between building this from scratch to integrating it within an existing system (e.g Drupal
+/Symfony)
+
+A: When building this from scratch, I have complete control over the architecture and technology choices. For example, I can use React, Next.js, PHP, or other technologies to structure the project however I like.
+
+However, when integrating this into Drupal, the approach changes in several ways:
+
+- Use Drupal’s built-in tools to handle requests securely and efficiently.
+- Define a custom route in Drupal’s routing system instead of using a separate PHP file.
+- Use Drupal’s HTTP Client (which is more secure and integrates with Drupal’s caching) instead of cURL.
+
+Task 4: Implement or describe how you would test the product search.
+
+A: Here’s how I would test the product search implementation to ensure it works correctly:
+
+- Basic Search Test: Enter a valid search term and verify that results are displayed.
+- Empty Search Term: Submit an empty search and confirm appropriate handling (e.g., an error message or no results).
+- Invalid Search Term: Use gibberish input to verify that no results or a proper error message appears.
+- Case Sensitivity: Test with uppercase, lowercase, and mixed-case terms to ensure consistent results.
+- Partial Matches: Enter a partial word (e.g., "Lon" for "London") to check if suggestions or results appear.
+- Special Characters Handling: Input symbols like @, #, $, %, & to see if the search processes them correctly.
+- Loading State: Verify that a loading animation or message appears before results load.
+- Clearing Old Results: Ensure that submitting a new search clears old results before showing new ones.
+- Responsive Grid Layout: Resize the window and test on different devices (mobile, tablet, desktop) to confirm the layout remains intact.
+- Error Handling: Simulate API failures and ensure appropriate messages are displayed.
+- Compatibility Check: Test search functionality in Chrome, Firefox, Edge, and Safari to ensure consistency.
